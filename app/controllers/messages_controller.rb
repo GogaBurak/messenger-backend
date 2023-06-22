@@ -1,7 +1,6 @@
 class MessagesController < ApplicationController
   def index
-    messages = []
-    messages << 'it works'
-    render json: { messages: messages }, status: :ok
+    @messages = []
+    @messages << { text: 'it works' }
   end
 end

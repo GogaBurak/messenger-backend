@@ -79,6 +79,9 @@ GEM
       activesupport (>= 5.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
+    jbuilder (2.11.5)
+      actionview (>= 5.0.0)
+      activesupport (>= 5.0.0)
     jwt (2.7.1)
     loofah (2.21.3)
       crass (~> 1.0.2)
@@ -160,6 +163,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap
+  jbuilder
   jwt (~> 2.7)
   pry (~> 0.14.2)
   puma (~> 5.0)

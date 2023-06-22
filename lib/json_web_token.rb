@@ -1,15 +1,19 @@
 class JsonWebToken
   SECRET_KEY = Rails.application.secrets.secret_key_base.to_s # TODO: add rails secret
+  EXPIRATION_TIME = 24.hours
 
-  def self.encode(payload, exp = 24.hours.from_now)
-    payload[:exp] = exp.to_i
+  def self.encode(payload, exp = EXPIRATION_TIME)
+    payload[:exp] = exp.from_now.to_i
 
-    JWT.encode payload, SECRET_KEY, "HS256"
+    {
+      token: JWT.encode(payload, SECRET_KEY, "HS256"),
+      exp: payload[:exp]
+    }
   end
 
   def self.decode(token)
     decoded_token = JWT.decode token, SECRET_KEY, { algorithm: 'HS256' }
-    payload = HashWithIndifferentAccess.new decoded_token.first
+    payload = decoded_token.first.symbolize_keys!
 
     raise JWT::ExpiredSignature unless Time.at(payload[:exp]) >= Time.now
 
