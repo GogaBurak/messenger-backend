@@ -1,1 +1,1 @@
-json.partial! "sessions/session", current_user: @current_user
+json.partial! "sessions/session", user: @user
