@@ -37,12 +37,22 @@ gem "bootsnap", require: false
 # gem "rack-cors"
 
 group :development, :test do
-  gem 'pry', '~> 0.14.2'
+  gem "pry", "~> 0.14.2"
+
+  gem "rspec-rails", "~> 6.0.0"
+  gem "factory_bot_rails", "~> 6.2"
+  gem "factory_trace", "~> 1.1"
 end
 
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+end
+
+group :test do
+  gem "shoulda-matchers", "~> 5.3"
+  gem "faker", "~> 3.2"
+  gem "database_cleaner-active_record", "~> 2.1"
 end
 
 
