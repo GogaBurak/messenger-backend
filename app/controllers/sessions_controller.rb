@@ -16,6 +16,7 @@ class SessionsController < ApplicationController
     
     if @user.save
       @payload = JsonWebToken.encode user_id: @user.id
+      render "signup", status: :created
     else
       render json: { erorrs: @user.errors }, status: :bad_request
     end
@@ -28,6 +29,6 @@ class SessionsController < ApplicationController
   private
 
   def session_params
-    params.require(:session).permit(:phone, :password)
+    params.require(:user).permit(:phone, :password)
   end
 end

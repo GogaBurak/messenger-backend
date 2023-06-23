@@ -17,7 +17,7 @@ Things you may want to cover:
 
 * How to run the test suite
 
-rspec   
+rspec .\spec\controllers\ --format documentation   
 
 * Find unused factories and traits
 
