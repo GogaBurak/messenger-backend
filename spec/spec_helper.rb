@@ -112,7 +112,7 @@ RSpec.configure do |config|
     end
   end
 
-  config.before(:each) do
+  config.before(:each, type: :controller) do
     controller.request.env["HTTP_ACCEPT"] = "application/json"
   end
 
