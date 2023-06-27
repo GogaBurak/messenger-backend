@@ -37,3 +37,6 @@
 
 # Ignore tests coverage
 coverage
+
+# Ignore system files
+.DS_Store
