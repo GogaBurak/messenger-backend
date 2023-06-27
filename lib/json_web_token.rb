@@ -13,10 +13,6 @@ class JsonWebToken
 
   def self.decode(token)
     decoded_token = JWT.decode token, SECRET_KEY, { algorithm: 'HS256' }
-    payload = decoded_token.first.symbolize_keys!
-
-    raise JWT::ExpiredSignature unless Time.at(payload[:exp]) >= Time.now
-
-    payload
+    decoded_token.first.symbolize_keys!
   end
 end
