@@ -1,3 +1,4 @@
+require 'simplecov'
 require 'support/factory_bot'
 # require all helpers
 Dir[File.join(__dir__, 'helpers', '*.rb')].each {|file| require file.split("spec/").last }
@@ -112,13 +113,17 @@ RSpec.configure do |config|
     end
   end
 
-  config.before(:each, type: :controller) do
-    controller.request.env["HTTP_ACCEPT"] = "application/json"
-  end
-
-  config.before(:example, authorized: true) do
-    user = create(:user)
-    token = JsonWebToken.encode({ user_id: user.id }, 5.minutes)[:token]
-    controller.request.env["HTTP_AUTHORIZATION"] = "Bearer #{token}"
+  # SimpleCov config
+  SimpleCov.start do
+    enable_coverage :branch
+    add_filter '/test/'
+    add_filter '/config/'
+    add_filter '/vendor/'
+    add_filter %r{^/spec/.+_spec\.rb$}
+    
+    add_group 'Controllers', 'app/controllers'
+    add_group 'Models', 'app/models'
+    add_group 'Helpers', 'app/helpers'
+    add_group 'Mailers', 'app/mailers'
   end
 end

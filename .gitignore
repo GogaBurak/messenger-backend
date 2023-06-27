@@ -34,3 +34,6 @@
 
 # Ignore asdf file
 .tool-versions
+
+# Ignore tests coverage
+coverage
