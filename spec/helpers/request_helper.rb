@@ -5,7 +5,7 @@ module RequestHelper
       # set default header for testing API
       args[:headers] ||= {} 
       args[:headers][:accept] = "application/json"
-# binding.pry
+
       process method_name, path, **default_options.merge(args)
     end
   end

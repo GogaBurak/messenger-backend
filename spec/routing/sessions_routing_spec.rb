@@ -1,15 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe 'SessionsController', type: :routing do
+RSpec.describe SessionsController do
   describe 'routing' do
-    it 'routes to #login' do
-      expect(post: "/login").to route_to("sessions#login")
-    end
-    it 'routes to #signup' do
-      expect(post: "/signup").to route_to("sessions#signup")
-    end
-    it 'routes to #logout' do
-      expect(delete: "/logout").to route_to("sessions#logout")
-    end
+    it { should route(:post, '/login').to(action: :login) }
+    it { should route(:post, '/signup').to(action: :signup) }
+    it { should route(:delete, '/logout').to(action: :logout) }
   end
 end

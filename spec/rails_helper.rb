@@ -8,6 +8,7 @@ require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'shoulda/matchers'
 require 'support/shoulda_matchers'
+require 'helpers/request_helper'
 
 # require all helpers
 # Dir[Rails.root.join('spec', 'helpers', '**', '*.rb')].sort.each { |f| require f }

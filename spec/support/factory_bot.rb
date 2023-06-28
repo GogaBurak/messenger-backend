@@ -2,9 +2,9 @@ require 'factory_bot'
 require 'pry'
 
 module FactoryBot::Syntax::Methods
-  def params_for(model_name)
+  def params_for(model_name, options = {})
     {
-      model_name => attributes_for(model_name)
+      model_name => attributes_for(model_name, options)
     }
   end
 end
