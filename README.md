@@ -17,6 +17,12 @@ Things you may want to cover:
 
 * How to run the test suite
 
+rspec --format documentation   
+
+* Find unused factories and traits
+
+FB_TRACE=1 rspec
+
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions

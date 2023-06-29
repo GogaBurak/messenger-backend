@@ -31,3 +31,12 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore asdf file
+.tool-versions
+
+# Ignore tests coverage
+coverage
+
+# Ignore system files
+.DS_Store
