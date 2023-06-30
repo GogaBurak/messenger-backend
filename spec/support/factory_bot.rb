@@ -3,9 +3,9 @@
 require 'factory_bot'
 require 'pry'
 
-# add custom method for generating controller params
 module FactoryBot
   module Syntax
+    # add custom method for generating controller params
     module Methods
       def params_for(model_name, options = {})
         {
