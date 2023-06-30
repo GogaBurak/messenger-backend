@@ -6,30 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: IndentationWidth, EnforcedStyle.
-# SupportedStyles: spaces, tabs
-Layout/IndentationStyle:
-  Exclude:
-    - 'app/controllers/application_controller.rb'
-
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: Width, AllowedPatterns.
-Layout/IndentationWidth:
-  Exclude:
-    - 'app/controllers/application_controller.rb'
-
-# Offense count: 2
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: AllowForAlignment, EnforcedStyleForExponentOperator.
-# SupportedStylesForExponentOperator: space, no_space
-Layout/SpaceAroundOperators:
-  Exclude:
-    - 'config/environments/production.rb'
-    - 'spec/requests/sessions_spec.rb'
-
 # Offense count: 2
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBrackets.

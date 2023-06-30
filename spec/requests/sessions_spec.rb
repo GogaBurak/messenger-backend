@@ -35,7 +35,7 @@ RSpec.describe 'Sessions' do
       it { expect(response.parsed_body).to include('token') }
     end
     context 'with existing phone' do
-      let(:expected_errors) { {'phone'=>['has already been taken']} }
+      let(:expected_errors) { {'phone' => ['has already been taken']} }
 
       before { create(:user) }
       before { post signup_path, params: params_for(:user) }
