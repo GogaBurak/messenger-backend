@@ -35,13 +35,13 @@ RSpec.describe 'Sessions' do
       it { expect(response.parsed_body).to include('token') }
     end
     context 'with existing phone' do
-      let(:expected_errors) { {'phone' => ['has already been taken']} }
+      let(:expected_errors) { { 'phone' => ['has already been taken'] } }
 
       before { create(:user) }
       before { post signup_path, params: params_for(:user) }
 
       it { expect(response).to have_http_status(:bad_request) }
-      it { expect(response.parsed_body).to eq({'erorrs' => expected_errors}) }
+      it { expect(response.parsed_body).to eq({ 'erorrs' => expected_errors }) }
     end
   end
 
