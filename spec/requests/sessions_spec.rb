@@ -7,7 +7,7 @@ RSpec.describe 'Sessions' do
 
   describe 'POST #login' do
     before { create(:user) }
-    before { post login_path, params:  }
+    before { post login_path, params: }
 
     context 'with valid params' do
       let(:params) { params_for(:user) }
@@ -29,7 +29,7 @@ RSpec.describe 'Sessions' do
 
   describe 'POST #signup' do
     context 'with valid params' do
-      before { post signup_path, params: params_for(:user)  }
+      before { post signup_path, params: params_for(:user) }
 
       it { expect(response).to have_http_status(:created) }
       it { expect(response.parsed_body).to include('token') }

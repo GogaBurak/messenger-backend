@@ -7,7 +7,7 @@ RSpec.describe User do
 
   describe 'Validations' do
     it { should validate_presence_of(:phone) }
-    it { should validate_uniqueness_of(:phone).case_insensitive  }
+    it { should validate_uniqueness_of(:phone).case_insensitive }
     it { should validate_presence_of(:password) }
 
     context 'with valid attributes' do
