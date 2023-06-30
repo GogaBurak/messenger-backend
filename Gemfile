@@ -46,9 +46,9 @@ gem 'rubocop', '~> 1.53', require: false
 group :development, :test do
   gem 'pry', '~> 0.14.2'
 
-  gem 'rspec-rails', '~> 6.0.0'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'factory_trace', '~> 1.1'
+  gem 'rspec-rails', '~> 6.0.0'
 end
 
 group :development do
@@ -57,8 +57,8 @@ group :development do
 end
 
 group :test do
-  gem 'shoulda-matchers', '~> 5.3'
-  gem 'faker', '~> 3.2'
   gem 'database_cleaner-active_record', '~> 2.1'
+  gem 'faker', '~> 3.2'
+  gem 'shoulda-matchers', '~> 5.3'
   gem 'simplecov', '~> 0.22.0', require: false
 end
