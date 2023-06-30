@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
 
   def signup
     @user = User.new(session_params)
-    
+
     if @user.save
       @payload = JsonWebToken.encode user_id: @user.id
       render 'signup', status: :created

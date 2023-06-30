@@ -22,7 +22,7 @@ RSpec.describe 'Sessions' do
     end
     context 'with invalid password' do
       let(:params) { params_for(:user, phone: '+0000000000') }
-  
+
       it { expect(response).to have_http_status(:bad_request) }
     end
   end

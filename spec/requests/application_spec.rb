@@ -19,7 +19,7 @@ RSpec.describe ApplicationController do
         token = JsonWebToken.encode({ user_id: user.id }, 5.minutes)[:token]
 
         { authorization: "Bearer #{token}" }
-      end 
+      end
 
       it { expect(response).not_to have_http_status(:unauthorized) }
     end
@@ -46,7 +46,7 @@ RSpec.describe ApplicationController do
         token = JsonWebToken.encode({ user_id: -1 }, 5.minutes)[:token]
 
         { authorization: "Bearer #{token}" }
-      end 
+      end
 
       it { expect(response).to have_http_status(:unauthorized) }
     end
