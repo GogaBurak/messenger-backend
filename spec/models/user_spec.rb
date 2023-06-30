@@ -11,7 +11,7 @@ RSpec.describe User do
     it { should validate_presence_of(:password) }
 
     context 'with valid attributes' do
-      it { expect( subject ).to be_valid }
+      it { expect(subject).to be_valid }
     end
   end
 end
