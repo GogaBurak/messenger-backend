@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::API
-	before_action :authorize_request
+  before_action :authorize_request
 
   def authorize_request
     header = request.headers['Authorization']
-    header = header.split(' ').last if header
+    header = header.split.last if header
 
     begin
       decoded = JsonWebToken.decode(header)

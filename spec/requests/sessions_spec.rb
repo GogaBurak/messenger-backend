@@ -1,49 +1,51 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "Sessions" do
+RSpec.describe 'Sessions' do
   subject { SessionsController }
 
-  describe "POST #login" do
+  describe 'POST #login' do
     before { create(:user) }
-    before { post login_path, params: params  }
+    before { post login_path, params: }
 
-    context "with valid params" do
+    context 'with valid params' do
       let(:params) { params_for(:user) }
 
       it { expect(response).to have_http_status(:ok) }
-      it { expect(response.parsed_body).to include("token") }
+      it { expect(response.parsed_body).to include('token') }
     end
-    context "with non-existing phone" do
-      let(:params) { params_for(:user, phone: "+0000000000") }
+    context 'with non-existing phone' do
+      let(:params) { params_for(:user, phone: '+0000000000') }
 
       it { expect(response).to have_http_status(:bad_request) }
     end
-    context "with invalid password" do
-      let(:params) { params_for(:user, phone: "+0000000000") }
-  
+    context 'with invalid password' do
+      let(:params) { params_for(:user, phone: '+0000000000') }
+
       it { expect(response).to have_http_status(:bad_request) }
     end
   end
 
-  describe "POST #signup" do
-    context "with valid params" do
-      before { post signup_path, params: params_for(:user)  }
+  describe 'POST #signup' do
+    context 'with valid params' do
+      before { post signup_path, params: params_for(:user) }
 
       it { expect(response).to have_http_status(:created) }
-      it { expect(response.parsed_body).to include("token") }
+      it { expect(response.parsed_body).to include('token') }
     end
-    context "with existing phone" do
-      let(:expected_errors) { {"phone"=>["has already been taken"]} }
+    context 'with existing phone' do
+      let(:expected_errors) { { 'phone' => ['has already been taken'] } }
 
       before { create(:user) }
       before { post signup_path, params: params_for(:user) }
 
       it { expect(response).to have_http_status(:bad_request) }
-      it { expect(response.parsed_body).to eq({"erorrs" => expected_errors}) }
+      it { expect(response.parsed_body).to eq({ 'erorrs' => expected_errors }) }
     end
   end
 
-  describe "DELETE #logout", skip_authorization: true do
+  describe 'DELETE #logout', skip_authorization: true do
     before { delete logout_path }
 
     # it { expect(response).to have_http_status(:no_content) }

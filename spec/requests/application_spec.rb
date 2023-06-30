@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe ApplicationController do
@@ -8,28 +10,28 @@ RSpec.describe ApplicationController do
     end
   end
 
-  describe "authorize_request" do
-    before(:each) { get "/authorize_request", headers: headers }
+  describe 'authorize_request' do
+    before(:each) { get '/authorize_request', headers: }
 
-    context "with valid token" do
+    context 'with valid token' do
       let(:headers) do
         user = create(:user)
         token = JsonWebToken.encode({ user_id: user.id }, 5.minutes)[:token]
 
         { authorization: "Bearer #{token}" }
-      end 
+      end
 
       it { expect(response).not_to have_http_status(:unauthorized) }
     end
-    context "without authorization header" do
+    context 'without authorization header' do
       it { expect(response).to have_http_status(:unauthorized) }
     end
-    context "with invalid token" do
-      let(:headers) { { authorization: "Bearer invaild_token" } }
+    context 'with invalid token' do
+      let(:headers) { { authorization: 'Bearer invaild_token' } }
 
       it { expect(response).to have_http_status(:unauthorized) }
     end
-    context "with outdated token" do
+    context 'with outdated token' do
       let(:headers) do
         user = create(:user)
         token = JsonWebToken.encode({ user_id: user.id }, -1.minute)[:token]
@@ -39,12 +41,12 @@ RSpec.describe ApplicationController do
 
       it { expect(response).to have_http_status(:unauthorized) }
     end
-    context "with invalid user_id in token" do
+    context 'with invalid user_id in token' do
       let(:headers) do
         token = JsonWebToken.encode({ user_id: -1 }, 5.minutes)[:token]
 
         { authorization: "Bearer #{token}" }
-      end 
+      end
 
       it { expect(response).to have_http_status(:unauthorized) }
     end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   post 'signup', to: 'sessions#signup', as: 'signup'
   post 'login', to: 'sessions#login', as: 'login'

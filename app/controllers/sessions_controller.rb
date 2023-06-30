@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class SessionsController < ApplicationController
-  skip_before_action :authorize_request, only: [:login, :signup]
+  skip_before_action :authorize_request, only: %i[login signup]
 
   def login
     @user = User.find_by_phone(session_params[:phone])
@@ -13,10 +15,10 @@ class SessionsController < ApplicationController
 
   def signup
     @user = User.new(session_params)
-    
+
     if @user.save
       @payload = JsonWebToken.encode user_id: @user.id
-      render "signup", status: :created
+      render 'signup', status: :created
     else
       render json: { erorrs: @user.errors }, status: :bad_request
     end
