@@ -9,7 +9,7 @@ RSpec.describe ApplicationController do
   end
 
   describe 'authorize_request' do
-    before(:each) { get '/authorize_request', headers: headers }
+    before(:each) { get '/authorize_request', headers: }
 
     context 'with valid token' do
       let(:headers) do

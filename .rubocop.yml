@@ -3,3 +3,8 @@ inherit_from: .rubocop_todo.yml
 AllCops:
   Exclude:
     - 'bin/**/*'
+
+Style/NumericLiterals:
+  Exclude:
+    - 'db/schema.rb'
+

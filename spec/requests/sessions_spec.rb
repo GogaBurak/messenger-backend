@@ -5,7 +5,7 @@ RSpec.describe 'Sessions' do
 
   describe 'POST #login' do
     before { create(:user) }
-    before { post login_path, params: params  }
+    before { post login_path, params:  }
 
     context 'with valid params' do
       let(:params) { params_for(:user) }
