@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# jwt processing
 class JsonWebToken
   SECRET_KEY = Rails.application.secrets.secret_key_base.to_s # TODO: add rails secret
   EXPIRATION_TIME = 24.hours

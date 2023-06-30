@@ -8,3 +8,10 @@ Style/NumericLiterals:
   Exclude:
     - 'db/schema.rb'
 
+Style/Documentation:
+  Exclude:
+    - 'app/controllers/*'
+    - 'app/mailers/*'
+    - 'app/models/*'
+    - 'config/application.rb'
+    - 'db/migrate/*'

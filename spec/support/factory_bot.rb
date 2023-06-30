@@ -3,6 +3,7 @@
 require 'factory_bot'
 require 'pry'
 
+# add custom method for generating controller params
 module FactoryBot::Syntax::Methods
   def params_for(model_name, options = {})
     {
