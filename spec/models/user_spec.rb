@@ -1,14 +1,14 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe User do
   subject { build(:user) }
 
-  describe "Validations" do
+  describe 'Validations' do
     it { should validate_presence_of(:phone) }
     it { should validate_uniqueness_of(:phone).case_insensitive  }
     it { should validate_presence_of(:password) }
     
-    context "with valid attributes" do 
+    context 'with valid attributes' do 
       it { expect( subject ).to be_valid }
     end
   end

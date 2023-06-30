@@ -6,7 +6,7 @@ class JsonWebToken
     payload[:exp] = exp.from_now.to_i
 
     {
-      token: JWT.encode(payload, SECRET_KEY, "HS256"),
+      token: JWT.encode(payload, SECRET_KEY, 'HS256'),
       exp: payload[:exp]
     }
   end

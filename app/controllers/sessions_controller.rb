@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
     
     if @user.save
       @payload = JsonWebToken.encode user_id: @user.id
-      render "signup", status: :created
+      render 'signup', status: :created
     else
       render json: { erorrs: @user.errors }, status: :bad_request
     end

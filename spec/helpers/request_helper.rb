@@ -4,7 +4,7 @@ module RequestHelper
       default_options = {}
       # set default header for testing API
       args[:headers] ||= {} 
-      args[:headers][:accept] = "application/json"
+      args[:headers][:accept] = 'application/json'
 
       process method_name, path, **default_options.merge(args)
     end
