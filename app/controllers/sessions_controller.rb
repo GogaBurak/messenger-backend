@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :authorize_request, only: [:login, :signup]
+  skip_before_action :authorize_request, only: %i[login signup]
 
   def login
     @user = User.find_by_phone(session_params[:phone])
