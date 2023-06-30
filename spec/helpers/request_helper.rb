@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RequestHelper
   %i[get post patch put delete].each do |method_name|
     define_method(method_name) do |path, args = {}|
